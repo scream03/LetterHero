@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+</head>
+<body id="body"  >
+
+    <div id="canvasContainer">
+        
+    </div>  
+    
+
+
+<!--    <button id="undo">Undo</button>-->
+<!--    <button id="redo">Redo</button>-->
+
+    <button id="home" > Home </button>
+    <button id="delete">Erase</button>
+    <button id="settings" > settings </button>
+    
+    <button id="story" >story</button>
+    <button id="help" >help</button>
+    <button id="recognize" > Recognize </button>
+    <span id="levelLetter" class="levelLetter"></span>
+    <button id="audio"> Audio </button>
+
+    <div class="boxes" id="helpBox" style="display: none;">Help</div>
+    <div class="boxes" id="storyBox" style="display: none;">Story</div>
+    <div class="boxes" id="winBox" style="display: none;">
+        <span>You Won</span>
+        <button class="nextLevel" id="nextLevel">Next Level</button>
+    
+    </div>
+
+    <audio id="levelSound" preload="auto">
+        <source src="sounds/B.mp3" type="audio/mpeg">
+    </audio> 
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/canvasAnimation.js"></script>
+    <script type="text/javascript" src="js/handwriting.canvas.js"></script>
+    <script type="text/javascript" src="js/myScript.js"></script>
+    
+    
+
+
+</body>
+</html>
