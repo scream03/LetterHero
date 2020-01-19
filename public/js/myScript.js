@@ -258,10 +258,6 @@ function draw() {
             butterfly.draw();
           break;
         case 2:
-<<<<<<< Updated upstream
-          //GENERATE LEVEL 2 ELEMENTS 
-          //setRecognizeCanvasPosition(200, 200);
-=======
           //GENERATE LEVEL 2 ELEMENTS
             
             setRecognizeCanvasPosition(glass.x*2 -60, glass.y*2 - 65);
@@ -286,7 +282,6 @@ function draw() {
             butterfly2.draw()
 
 
->>>>>>> Stashed changes
           break;
         default:
           // code block

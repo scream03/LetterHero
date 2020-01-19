@@ -215,7 +215,7 @@ Glass.prototype.scale = function () {
 
 Glass.prototype.drawLetter = function () {
     push();
-    //translate(this.x, this.y);
+    translate(this.x*2, this.y *2);
     //rotate(-PI/4);
     // strokeWeight(5);
     // stroke(this.wingColorR, this.wingColorG, this.wingColorB);
