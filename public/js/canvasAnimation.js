@@ -102,9 +102,8 @@ Butterfly.prototype.triggerAnimationLv2= function () {
     this.pct += this.step;
     if (this.pct < 1.0) {
         this.x = this.beginAnimX + this.pct * this.distX;
-        if(this.pct < 0.5){
-            this.y = this.beginAnimY + (-1)*pow(this.pct, this.exponent) * this.distY ;
-        }
+        this.y = this.beginAnimY + pow(this.pct, this.exponent) * this.distY ;
+    
         
         
     }
