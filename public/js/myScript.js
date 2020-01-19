@@ -1,4 +1,3 @@
-
 var button = document.getElementById("recognize");
 var b2 = document.getElementById("delete");
 var img = new Image();
@@ -9,7 +8,6 @@ var body = document.getElementById("body");
 var  storyBox = document.getElementById("storyBox");
 // DYNAMIC CANVAS PARAMENTERS
 let butterfly;
-
 
 function dataObjectUpdated() {
     localStorage.setItem('gameData', JSON.stringify(gameData));
@@ -30,7 +28,14 @@ function loadlevel(level){
     //set level wallpaper
     let wallpaperPathString =   "url('imgs/" + gameData.levels[level -1].wallpaper + "')";
     $(body).css("background-image",  wallpaperPathString);
-
+    $('levelSound').src="sounds/"+gameData.levels[level-1].letter+".mp3";
+    let tmp = document.getElementById("levelSoundSource").src;
+    console.log(tmp)
+    document.getElementById("levelSoundSource").src = "sounds/"+gameData.levels[level-1].letter+".mp3";
+    tmp = document.getElementById("levelSoundSource").src;
+    console.log(tmp)
+    var audio = document.getElementById('levelSound');
+    audio.load()
     //set score
     $('#playerScore').html(gameData.playerScore);
     
@@ -57,15 +62,19 @@ function levelWon(){
         gameData.playerScore += 50;
         gameData.levels[gameData.currentLevel -1].completed = true;
         gameData.completedLevels++;
+
         //unlock next level
-
         unlockNextLevel(gameData.completedLevels);
-
 
     }
     $('#winBox').fadeIn();
 
     dataObjectUpdated();
+}
+
+function levelLost(){
+    can1.erase();
+    $('#looseBox').fadeIn();
 }
 
 
@@ -126,6 +135,7 @@ $('#audio').click(function() {
     sound.play();
     return false;
   });
+
 $('#nextLevel').click(function(){
     console.log('Go to next level');
     gameData.currentLevel++;
@@ -133,6 +143,23 @@ $('#nextLevel').click(function(){
     dataObjectUpdated();
     return false;
 });
+
+$('#tryAgainButton').click(function(){
+    console.log('tryAgain');
+    $('.boxes').hide();
+    return false;
+});
+
+$('#closeStoryButton').click(function(){
+    $('.boxes').hide();
+    return false;
+});
+
+$('#closeHelpButton').click(function(){
+    $('.boxes').hide();
+    return false;
+});
+
 /*
 img.src = "B.jpg";
 img.onload = () => {
@@ -166,9 +193,6 @@ b7.addEventListener("click", function () {
 });
 
 
-
-
-
 var recognizeCanvas = document.createElement('canvas');
 $(recognizeCanvas).addClass('recognizeCanvas');
 recognizeCanvas.width = "150";
@@ -180,9 +204,14 @@ var can1 = new handwriting.Canvas(recognizeCanvas);
 can1.setCallBack(function(data, err) {
     if(err) throw err;
     else
-    //Level won, go to next level                             
-    //window.alert(data[0]=="B");
-    levelWon();
+    //Level won, go to next level
+    console.log(data[0])
+    console.log(gameData.levels[gameData.currentLevel-1].letter)
+
+    if (data[0]===gameData.levels[gameData.currentLevel-1].letter)
+        levelWon();
+    else
+        levelLost();
     
 });
 
@@ -250,8 +279,13 @@ function draw() {
             butterfly.draw();
           break;
         case 2:
-          //GENERATE LEVEL 2 ELEMENTS 
-          //setRecognizeCanvasPosition(200, 200);
+          //GENERATE LEVEL 2 ELEMENTS
+            glass = new Glass(windowWidth/4, windowHeight/4, 0, 0);
+            butterfly = new Butterfly(windowWidth/8, windowHeight/8, 0, 0);
+            butterfly.draw()
+            setRecognizeCanvasPosition(glass.x*2 -60, glass.y*2 - 65);
+            glass.move(glass.vx, glass.vy);
+            glass.draw();
           break;
         default:
           // code block

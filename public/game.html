@@ -25,29 +25,39 @@
     
     <button id="story" class = " abs optionsBtn" >story</button>
     <button id="help" class = " abs optionsBtn">help</button>
+
     <button id="recognize" class = " abs optionsBtn"> Recognize </button>
     <span id="levelLetter" class="levelLetter"></span>
     <button id="audio" class="abs optionsBtn audioButton"> Audio </button>
 
-    <div class="boxes" id="helpBox" style="display: none;">Help</div>
+    <div class="boxes" id="helpBox" style="display: none;">
+        <div id="helpText">Help</div>
+        <button id="closeHelpButton">CLOSE</button>
+    </div>
+
     <div class="boxes" id="storyBox" style="display: none;">
         <div class="storyText" id="storyText">Story</div>
-        <button class="closeStoryButton">CLOSE</button>
+        <button class="closeStoryButton" id="closeStoryButton">CLOSE</button>
     </div>
     <div class="boxes" id="winBox" style="display: none;">
         <div>You Won</div>
         <button class="nextLevel" id="nextLevel">Next Level</button>
-    
+    </div>
+
+    <div class="boxes" id="looseBox" style="display: none;">
+        <div>You Lost</div>
+        <button id="tryAgainButton">Try again!</button>
     </div>
 
     <audio id="levelSound" preload="auto">
-        <source src="sounds/B.mp3" type="audio/mpeg">
+        <source id="levelSoundSource" src="sounds/B.mp3" type="audio/mpeg">
     </audio> 
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/localStorage.js"></script>
 
     <script type="text/javascript" src="js/canvasAnimation.js"></script>
+    <script type="text/javascript" src="js/UAnimation.js"></script>
     <script type="text/javascript" src="js/handwriting.canvas.js"></script>
     <script type="text/javascript" src="js/myScript.js"></script>
     

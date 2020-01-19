@@ -17,7 +17,7 @@ var gameData = (localStorage.getItem('gameData')) ? JSON.parse(localStorage.getI
             letter: 'U',
             wallpaper: 'wall_level1.jpg',
             story: 'Story level 2',
-            audio: 'B.mp3',
+            audio: 'U.mp3',
             help: '',
             completed: false
 
