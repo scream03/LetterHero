@@ -42,8 +42,8 @@
 }
 
 .playLevelButton{
-  
   height: 3rem;
+  cursor: pointer;
 }
 .lockedButton{
   pointer-events: none;

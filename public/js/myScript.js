@@ -9,6 +9,10 @@ var body = document.getElementById("body");
 var  storyBox = document.getElementById("storyBox");
 // DYNAMIC CANVAS PARAMENTERS
 let butterfly;
+let butterfly2;
+let glass;
+let cloud;
+let rain;
 
 
 function dataObjectUpdated() {
@@ -22,6 +26,9 @@ function startGame(){
     dataObjectUpdated();
 }
 function loadlevel(level){
+
+    //make the user replay the level
+    gameData.levels[level -1].won = false;
     
     $('.boxes').hide();
     $('#storyText').html(gameData.levels[level -1].story);
@@ -53,9 +60,12 @@ function unlockNextLevel(levelToUnlock){
 }
 function levelWon(){
     can1.erase();
+    gameData.levels[gameData.currentLevel -1].won = true;
+
     if(!gameData.levels[gameData.currentLevel -1].completed){
         gameData.playerScore += 50;
         gameData.levels[gameData.currentLevel -1].completed = true;
+        console.log(gameData.currentLevel);
         gameData.completedLevels++;
         //unlock next level
 
@@ -81,6 +91,7 @@ function setLevelsUncompleted(){
         console.log(l);
 
         l.completed = false;
+        l.won = false;
     }
     gameData.completedLevels = 0;
     
@@ -220,23 +231,21 @@ loadlevel(gameData.currentLevel);
 function setup() {
     
     createCanvas(windowWidth, windowHeight).parent("canvasContainer");
+    
+    //LV1
     butterfly = new Butterfly(windowWidth/4, windowHeight/4, 0, 0);
-    //butterfly.setSpeed(3,3);
 
-    /*
-    switch(gameData.currentLevel) {
-        case 1:
-          // code block
-          setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
-          break;
-        case 2:
-          // code block
-          setRecognizeCanvasPosition(200, 200);
-          break;
-        default:
-          // code block
-      }
-    */
+    //LV2
+
+    butterfly2 = new Butterfly(windowWidth/8, windowHeight/8, 0, 0);
+    butterfly2.setAnimation(butterfly2.x, butterfly2.y, 800, 500);
+    
+    glass = new Glass(windowWidth/4, windowHeight/4 +30, 0, 0);
+    
+    cloud = new Cloud(windowWidth/7 -40, windowHeight/10 - 50, 0, 0);
+    rain = new Rain(cloud.x + 35, cloud.y +20, 0, 1, 5, glass.y);
+
+    
 
 }
 function draw() {
@@ -246,12 +255,38 @@ function draw() {
     switch(gameData.currentLevel) {
         case 1:
             setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
-            butterfly.move(butterfly.vx, butterfly.vy);
             butterfly.draw();
           break;
         case 2:
+<<<<<<< Updated upstream
           //GENERATE LEVEL 2 ELEMENTS 
           //setRecognizeCanvasPosition(200, 200);
+=======
+          //GENERATE LEVEL 2 ELEMENTS
+            
+            setRecognizeCanvasPosition(glass.x*2 -60, glass.y*2 - 65);
+
+            glass.move();
+            glass.draw();
+
+            cloud.draw();
+
+            //if level2 won stop rain earlier
+            let limit;
+            if(gameData.levels[1].won == true){
+                limit = glass.y - 150;
+                butterfly2.triggerAnimationLv2();
+            }else{
+                limit = glass.y;
+            }
+            rain.setLimit(limit);
+            rain.move();
+            rain.draw();
+
+            butterfly2.draw()
+
+
+>>>>>>> Stashed changes
           break;
         default:
           // code block
