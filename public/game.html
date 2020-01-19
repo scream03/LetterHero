@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Letter Hero</title>
     <link rel="stylesheet" type="text/css" href="css/game.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
 </head>
@@ -17,20 +17,25 @@
 <!--    <button id="undo">Undo</button>-->
 <!--    <button id="redo">Redo</button>-->
 
-    <button id="home" > Home </button>
-    <button id="delete">Erase</button>
-    <button id="settings" > settings </button>
+    <div class="scoreBox">Score: <span class="playerScore"id="playerScore">0</span></div>
+
+    <button class = " abs optionsBtn" id="home" > Home </button>
+    <button id="delete" class = " abs optionsBtn">Erase</button>
+    <button id="settings"  class = " abs optionsBtn"> settings </button>
     
-    <button id="story" >story</button>
-    <button id="help" >help</button>
-    <button id="recognize" > Recognize </button>
+    <button id="story" class = " abs optionsBtn" >story</button>
+    <button id="help" class = " abs optionsBtn">help</button>
+    <button id="recognize" class = " abs optionsBtn"> Recognize </button>
     <span id="levelLetter" class="levelLetter"></span>
-    <button id="audio"> Audio </button>
+    <button id="audio" class="abs optionsBtn audioButton"> Audio </button>
 
     <div class="boxes" id="helpBox" style="display: none;">Help</div>
-    <div class="boxes" id="storyBox" style="display: none;">Story</div>
+    <div class="boxes" id="storyBox" style="display: none;">
+        <div class="storyText" id="storyText">Story</div>
+        <button class="closeStoryButton">CLOSE</button>
+    </div>
     <div class="boxes" id="winBox" style="display: none;">
-        <span>You Won</span>
+        <div>You Won</div>
         <button class="nextLevel" id="nextLevel">Next Level</button>
     
     </div>

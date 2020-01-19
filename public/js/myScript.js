@@ -1,4 +1,5 @@
 var gameData = (localStorage.getItem('gameData')) ? JSON.parse(localStorage.getItem('gameData')) : {
+    playerScore:0,
     currentLevel: 0,
     levels : [
         {
@@ -32,8 +33,9 @@ var b5 = document.getElementById("help");
 var b6 = document.getElementById("story");
 var b7 = document.getElementById("home");
 var body = document.getElementById("body");
-let  storyBox = document.getElementById("storyBox");
-
+var  storyBox = document.getElementById("storyBox");
+// DYNAMIC CANVAS PARAMENTERS
+let butterfly;
 
 
 function dataObjectUpdated() {
@@ -47,18 +49,34 @@ function startGame(){
 function loadlevel(level){
     gameData.currentLevel++;
     $('.boxes').hide();
-    $('#storyBox').html(gameData.levels[level -1].story);
+    $('#storyText').html(gameData.levels[level -1].story);
     $('#levelLetter').html(gameData.levels[level -1].letter);
 
     //set level wallpaper
     let wallpaperPathString =   "url('imgs/" + gameData.levels[level -1].wallpaper + "')";
     $(body).css("background-image",  wallpaperPathString);
-    //body.style.backgroundImage = "url(imgs/" + gameData.levels[level -1].wallpaper +  ");";
-   
+
+    //set score
+    $('#playerScore').html(gameData.playerScore);
+    
     dataObjectUpdated();
 }
 
-////
+function setRecognizeCanvasPosition(p_x, p_y){
+    //set recognize canvas position
+    $('.recognizeCanvas').css("left", p_x);
+    $('.recognizeCanvas').css("top", p_y);
+}
+
+function levelWon(){
+    can1.erase();
+    gameData.playerScore += 50;
+    $('#winBox').fadeIn();
+
+    dataObjectUpdated();
+}
+
+//// EVENT LISTENERS
 
 
 
@@ -128,8 +146,8 @@ b7.addEventListener("click", function () {
 
 var recognizeCanvas = document.createElement('canvas');
 $(recognizeCanvas).addClass('recognizeCanvas');
-recognizeCanvas.width = "250";
-recognizeCanvas.height = "250";
+recognizeCanvas.width = "150";
+recognizeCanvas.height = "200";
 
 var can1 = new handwriting.Canvas(recognizeCanvas);
 
@@ -139,8 +157,10 @@ can1.setCallBack(function(data, err) {
     else
     //Level won, go to next level                             
     //window.alert(data[0]=="B");
-    $('#winBox').fadeIn();
+    levelWon();
+    
 });
+
 
 //Set line width shown on the canvas element (default: 3)
 can1.setLineWidth(5);
@@ -163,6 +183,47 @@ can1.setOptions(
 $('#canvasContainer').append(recognizeCanvas);
 
 //MAIN
-dataObjectUpdated();
+dataObjectUpdated(); //Update local storage
 startGame();
 loadlevel(1);
+
+//FILL CANVAS
+
+//RUN CANVAS
+
+function setup() {
+    
+    createCanvas(windowWidth, windowHeight).parent("canvasContainer");
+    butterfly = new Butterfly(windowWidth/4, windowHeight/4, 0, 0);
+    //butterfly.setSpeed(3,3);
+
+    /*
+    switch(gameData.currentLevel) {
+        case 1:
+          // code block
+          setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
+          break;
+        case 2:
+          // code block
+          setRecognizeCanvasPosition(200, 200);
+          break;
+        default:
+          // code block
+      }
+    */
+
+}
+function draw() {
+
+    var canvas= document.getElementById("defaultCalvas0");
+    clear(canvas); // clear canvas view each tim draw is called;
+    if(gameData.currentLevel == 1){
+        setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
+        butterfly.move(butterfly.vx, butterfly.vy);
+        butterfly.draw();
+    }
+    if(gameData.currentLevel == 2){
+        //GENERATE LEVEL 2 ELEMENTS 
+    }
+    
+}

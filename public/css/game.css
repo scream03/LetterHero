@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 body  {
     background-repeat: no-repeat;
@@ -14,11 +15,20 @@ body  {
     height: 100%;
 }
 
-button{
+.abs{
     position: absolute;
+}
+.optionsBtn{
     width: 10%;
     height: 5%;
     border: 3px solid #73AD21;
+}
+
+.scoreBox{
+    position: absolute;
+    top: 3rem;
+    left: 45%;
+    font-size: 3rem;
 }
 
 #home {
@@ -52,7 +62,7 @@ button{
     bottom: 19%;
 }
 
-#audio {
+.audioButton {
     left: 2%;
     top: 15%;
 }
@@ -61,6 +71,7 @@ button{
 
 
 .boxes {
+   
     position: absolute;
     height: 30%;
     width: 30%;
@@ -86,8 +97,7 @@ button{
     border: 1px solid black;
     /* width: 400;
     height: 400; */
-    left: 50%;
-    top:37%;
+    
     cursor: crosshair;
 
 }

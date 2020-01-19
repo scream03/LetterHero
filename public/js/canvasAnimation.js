@@ -1,6 +1,4 @@
 console.log('script called');
-//PARAMENTERS
-let butterfly;
 
 
 function Butterfly(x_pos, y_pos, v_x, v_y) {
@@ -43,15 +41,17 @@ Butterfly.prototype.drawWings = function () {
         stroke(this.wingColorR, this.wingColorG, this.wingColorB);
         fill(this.wingColorR, this.wingColorG, this.wingColorB);
         this.scale();
+        //left wing
         bezier(0,0,1,-60, 70, -5,0,0 ); 
         bezier(0,0, 70,-10, 25, 45, 0,20);
+        //right wing
         bezier(0,0,-1, -60 , -70,-5, 0, 0);
         bezier(0,0,-70, -10 , -25,45, 0, 20);
         
     pop();
 
 
-    //bezier();
+    
 }
 
 Butterfly.prototype.move = function () {
@@ -85,20 +85,5 @@ Butterfly.prototype.draw = function () {
 
 
 
-//RUN CANVAS
 
-function setup() {
-    
-          createCanvas(windowWidth, windowHeight).parent("canvasContainer");
-          butterfly = new Butterfly(windowWidth/4, windowHeight/4, 0, 0);
-          //butterfly.setSpeed(3,3);
-    
-}
-function draw() {
-
-    var canvas= document.getElementById("defaultCalvas0");
-    clear(canvas); // clear canvas view each tim draw is called;
-    butterfly.move(butterfly.vx, butterfly.vy);
-    butterfly.draw();
-}
 
