@@ -1,30 +1,3 @@
-var gameData = (localStorage.getItem('gameData')) ? JSON.parse(localStorage.getItem('gameData')) : {
-    playerScore:0,
-    currentLevel: 0,
-    levels : [
-        {
-            letter: 'B',
-            wallpaper: 'wall_level1.jpg',
-            story: 'Story level 1',
-            audio: 'B.mp3',
-            help: ''
-
-
-        },
-        {
-            letter: 'U',
-            wallpaper: 'wall_level1.jpg',
-            story: 'Story level 2',
-            audio: 'B.mp3',
-            help: ''
-
-
-        }
-     ]
-     
-
-    
-}
 
 var button = document.getElementById("recognize");
 var b2 = document.getElementById("delete");
@@ -43,11 +16,13 @@ function dataObjectUpdated() {
 }
 
 function startGame(){
-    gameData.currentLevel = 0;
+    if (gameData.currentLevel ==0){
+        gameData.currentLevel++;
+    }
     dataObjectUpdated();
 }
 function loadlevel(level){
-    gameData.currentLevel++;
+    
     $('.boxes').hide();
     $('#storyText').html(gameData.levels[level -1].story);
     $('#levelLetter').html(gameData.levels[level -1].letter);
@@ -67,15 +42,63 @@ function setRecognizeCanvasPosition(p_x, p_y){
     $('.recognizeCanvas').css("left", p_x);
     $('.recognizeCanvas').css("top", p_y);
 }
+function unlockNextLevel(levelToUnlock){
+    let b = document.getElementsByClassName('levelCard');
+    
+    //let levelButtons = document.getElementsByClassName('playLevelButton');
 
+    //console.log(levelToUnlock);
+    //console.log(levelButtons);
+    //levelButtons[levelToUnlock].disabled = false;
+}
 function levelWon(){
     can1.erase();
-    gameData.playerScore += 50;
+    if(!gameData.levels[gameData.currentLevel -1].completed){
+        gameData.playerScore += 50;
+        gameData.levels[gameData.currentLevel -1].completed = true;
+        gameData.completedLevels++;
+        //unlock next level
+
+        unlockNextLevel(gameData.completedLevels);
+
+
+    }
     $('#winBox').fadeIn();
 
     dataObjectUpdated();
 }
 
+
+//DEBUG - CONSOLE  FUNCTIONS
+
+function clearscore(){
+    gameData.playerScore = 0;
+
+}
+function setLevelsUncompleted(){
+    for (l of gameData.levels){
+        console.log('Set level uncompleted');
+        console.log(l);
+
+        l.completed = false;
+    }
+    gameData.completedLevels = 0;
+    
+}
+function initialCurrentLevel(){
+    gameData.currentLevel = 0;
+}
+
+function restartGameDebug(){
+    clearscore()
+    setLevelsUncompleted();
+    initialCurrentLevel();
+
+    dataObjectUpdated();
+
+    loadlevel(1);
+    
+}
 //// EVENT LISTENERS
 
 
@@ -105,9 +128,11 @@ $('#audio').click(function() {
   });
 $('#nextLevel').click(function(){
     console.log('Go to next level');
-    loadlevel(gameData.currentLevel +1);
+    gameData.currentLevel++;
+    loadlevel(gameData.currentLevel);
+    dataObjectUpdated();
     return false;
-})
+});
 /*
 img.src = "B.jpg";
 img.onload = () => {
@@ -184,8 +209,9 @@ $('#canvasContainer').append(recognizeCanvas);
 
 //MAIN
 dataObjectUpdated(); //Update local storage
-startGame();
-loadlevel(1);
+//startGame();
+//restartGameDebug();
+loadlevel(gameData.currentLevel);
 
 //FILL CANVAS
 
@@ -217,13 +243,19 @@ function draw() {
 
     var canvas= document.getElementById("defaultCalvas0");
     clear(canvas); // clear canvas view each tim draw is called;
-    if(gameData.currentLevel == 1){
-        setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
-        butterfly.move(butterfly.vx, butterfly.vy);
-        butterfly.draw();
-    }
-    if(gameData.currentLevel == 2){
-        //GENERATE LEVEL 2 ELEMENTS 
-    }
+    switch(gameData.currentLevel) {
+        case 1:
+            setRecognizeCanvasPosition(butterfly.x*2, butterfly.y*2 - 90);
+            butterfly.move(butterfly.vx, butterfly.vy);
+            butterfly.draw();
+          break;
+        case 2:
+          //GENERATE LEVEL 2 ELEMENTS 
+          //setRecognizeCanvasPosition(200, 200);
+          break;
+        default:
+          // code block
+      }
+    
     
 }
