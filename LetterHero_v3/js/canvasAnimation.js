@@ -190,7 +190,6 @@ Glass.prototype.drawLetter = function () {
         translate(this.x*2, this.y *2);
         fill(this.colorR, this.colorG, this.colorB);
         this.scale();
-        //left wing
         textFont(this.font);
         textSize(100);
         text('U', -30, 50);
