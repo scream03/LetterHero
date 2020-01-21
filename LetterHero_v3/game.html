@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Letter Hero</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body id="body"  >
+
+    <div id="canvasContainer">
+
+    </div>
+
+
+
+
+    <a class="btn scoreBox red">Score: <span class="playerScore" id="playerScore">0</span></a>
+
+    <a class = "btn abs optionsBtn yellow" id="home" > <i class="material-icons">home</i> </a>
+    <a id="help" class = "btn abs optionsBtn yellow"><i class="material-icons">live_help</i></a>
+    <a id="delete" class = "btn abs optionsBtn yellow"><i class="material-icons">cancel</i></a>
+    <a id="recognize" class = "btn abs optionsBtn yellow"><i class="material-icons">check_circle</i></a>
+    <div id="levelLetter" class="levelLetter"></div>
+    <a id="audio" class="btn abs optionsBtn audioButton yellow"> <i class="material-icons">volume_up</i> </a>
+    <a id="story" class = "btn abs optionsBtn yellow" ><i class="material-icons">menu_book</i></a>
+
+    <audio id="helpSound" preload="auto">
+        <source id="helpSoundSource" src="sounds/help.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="storySound" preload="auto">
+        <source id="storySoundSource" src="sounds/storyB.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="boxes" id="winBox" style="display: none;">
+        <audio id="winSound" preload="auto">
+            <source id="winSoundSource" src="sounds/win.mp3" type="audio/mpeg">
+        </audio>
+        <div class="top-pink-border"></div>
+        <div class="instruction-wrap">
+            <div class="block-instruction">
+                <div class="instruction">
+                    <h2>That was AMAZING! :) </h2>
+                    <a id="nextLevel" class="btn nextLevel yellow">Next level</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-pink-border"></div>
+    </div>
+
+    <div class="boxes" id="looseBox" style="display: none;">
+        <audio id="lostSound" preload="auto">
+            <source id="lostSoundSource" src="sounds/lost.mp3" type="audio/mpeg">
+        </audio>
+            <div class="top-pink-border"></div>
+            <div class="instruction-wrap">
+                <div class="block-instruction">
+                    <div class="instruction">
+                        <h2>Oh no!! You lost! :( </h2>
+                        <a id="tryAgainButton" class="btn yellow">Try again!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-pink-border"></div>
+    </div>
+
+    <audio id="levelSound" preload="auto">
+        <source id="levelSoundSource" src="sounds/B.mp3" type="audio/mpeg">
+    </audio>
+
+    <script  src="js/jquery.js"></script>
+    <script  src="js/localStorage.js"></script>
+
+    <script  src="js/canvasAnimation.js"></script>
+    <script  src="js/handwriting.canvas.js"></script>
+    <script  src="js/myScript.js"></script>
+
+
+
+</body>
+</html>
