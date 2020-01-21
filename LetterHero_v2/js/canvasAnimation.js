@@ -305,16 +305,7 @@ Rain.prototype.move = function () {
 
     this.x += this.vx;
     this.y += this.vy;
-    /*
-    if (this.x < 100 || this.x > width) {
-        this.vx *= -1;
-
-    }
-    if (this.y < 100 || this.y > height) {
-        this.vy *= -1;
-
-    }
-    */
+    
    if (this.y > this.rainLimit) {
         this.y = this.initY;
    }

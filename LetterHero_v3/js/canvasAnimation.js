@@ -222,9 +222,6 @@ function Rain(x_pos, y_pos, v_x, v_y, dropsNumber, limit) {
     this.y = y_pos;
     this.vx = v_x;
     this.vy = v_y;
-    this.colorR = 0;
-    this.colorG = 210;
-    this.colorB = 210;
     this.scaleFactor = 2.5;
     this.dropsNumber = dropsNumber;
     this.dropsSize = 10;
@@ -282,4 +279,4 @@ function randomDataSet(dataSetSize, minValue, maxValue) {
     return new Array(dataSetSize).fill(0).map(function(n) {
       return Math.random() * (maxValue - minValue) + minValue;
     });
-  }
+}
