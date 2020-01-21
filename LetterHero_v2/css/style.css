@@ -28,18 +28,8 @@ img {
 	vertical-align: middle;
 }
 
-ol, ul {
+ul {
 	list-style: none;
-}
-
-blockquote, q {
-	quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
 }
 
 #lock {
@@ -48,11 +38,6 @@ q:before, q:after {
 
 #play {
 	padding-top:10px;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }
 
 a[href], label[for], select, 
@@ -67,33 +52,8 @@ input[type=reset], input[type=submit] {
 	cursor: pointer;
 }
 
-button::-moz-focus-inner, 
-input[type=button]::-moz-focus-inner, 
-input[type=image]::-moz-focus-inner, 
-input[type=reset]::-moz-focus-inner, 
-input[type=submit]::-moz-focus-inner {
-	border: 0;
-}
-
-.hide {
-	position: absolute !important;
-	left: -9999em !important;
-}
-
-.clearfix:after {
-	content: ".";
-	display: block;
-	visibility: hidden;
-	clear: both;
-	height: 0;
-}
-
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
-}
-
-.ie7 .clearfix {
-	zoom: 1; 
 }
 
 strong {
@@ -150,7 +110,6 @@ input[type=tel], input[type=url], input[type=password], input[type=text], input[
      -webkit-border-radius: 0;
 }
 
-
 /* Normalized Styles
 ------------------------------------------------------------------------------*/
 body {
@@ -196,25 +155,9 @@ a.red {
 	color: #fff;
 	background: url(../images/bg_red-btn.png) no-repeat;
 }
-a.redBorders {
-	color: #fff;
-	background: url(../images/bg_td-archival.png) no-repeat;
-}
-a.redBorders:hover, a.yellow:hover{
-	opacity: 0.8;
-}
 a.red:hover, a.yellow:hover{
 	opacity: 0.8;
 }
-input.white[type=submit] {
-	color: #73b0be;
-	border: none;
-	background: url(../images/bg_white-btn.png) no-repeat;
-}
-input.white[type=submit]:hover{
-	opacity: 0.8;
-}
-.placeholder { color: #4e87a0; }
 
 /* Wrapper
 ------------------------------------------------------------------------------*/
@@ -351,19 +294,6 @@ input.white[type=submit]:hover{
 .slider li {
 	position: relative;
 }
-.slider-sub li {
-	max-width: 500px;
-	position: relative;
-}
-.slider-sub li .slide-mask {
-	max-width: 500px;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.slide-sub {
-	max-width: 500px;
-}
 .slider li .slide-mask {
 	position: absolute;
 	top: 0;
@@ -385,40 +315,6 @@ input.white[type=submit]:hover{
 	padding: 20px 0 30px;
 	line-height: 30px;
 }
-.bx-wrapper {
-	margin: 0 auto;
-}
-.bx-wrapper .bx-viewport {
-	left: 0;
-	box-shadow: none;
-	border: none;
-}
-.bx-wrapper .bx-pager {
-	bottom: 35px;
-}
-.bx-wrapper .bx-pager.bx-default-pager a {
-	background: url(../images/bg_pgn.png) no-repeat;
-	background-size: 16px 16px;
-	display: block;
-	width: 16px;
-	height: 16px;
-	margin: 0 5px;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-}
-.bx-wrapper .bx-pager.bx-default-pager a:hover,
-.bx-wrapper .bx-pager.bx-default-pager a.active {
-	background: url(../images/bg_pgn-active.png) no-repeat 0 0;
-	background-size: 16px 16px;
-}
-.gallery .bx-wrapper .bx-pager.bx-default-pager a:hover,
-.gallery .bx-wrapper .bx-pager.bx-default-pager a.active,
-.gallery .bx-wrapper .bx-pager.bx-default-pager a {
-	width: 22px;
-	height: 22px;
-	background-size: 22px 22px;
-}
 
 /* Main
 ------------------------------------------------------------------------------*/
@@ -426,10 +322,6 @@ input.white[type=submit]:hover{
 	margin: 0 auto;
 	overflow: hidden;
 	position: relative;
-}
-.wrap-boxes {
-	max-width: 1170px;
-	margin: 0 auto;
 }
 .widget-boxes {
 	margin: 30px 0;
@@ -520,242 +412,6 @@ input.white[type=submit]:hover{
 	font-size: 16px;
 	font-weight: bold;
 	color: #efd37f;
-}
-.event-description .metadata{
-	padding: 18px 0;
-	color: #ffb3b5;
-}
-.event-description .metadata time {
-	padding-left: 25px;
-	background: url(../images/ico_date-pink.png) no-repeat 0 0;
-}
-.event-description .metadata span {
-	padding-left: 25px;
-	margin-left: 30px;
-	background: url(../images/ico_place-pink.png) no-repeat 0 2px;
-}
-.event-description .metadata time span {
-	padding-left: 25px;
-	margin-left: 30px;
-	background: url(../images/ico_time-pink.png) no-repeat 0 0;
-}
-.event-description p{
-	padding: 0 0 25px;
-	line-height: 24px;
-}
-
-.widget-calendar{
-	width: 378px;
-}
-
-.event-calendar{
-	width: 378px;
-	margin-bottom: 30px;
-	font-family: 'Gochi Hand', cursive;
-	font-size: 24px;
-	text-align: center;
-}
-.event-calendar col{
-	width: 54px;
-}
-.event-calendar th{
-	padding-bottom: 10px;
-	font-size: 20px;
-	text-align: center;
-}
-.event-calendar td{
-	vertical-align: middle;
-	position:relative;
-}
-.event-calendar td .cell-wrap{
-	display: block;
-	width: 48px;
-	height: 48px;
-	line-height: 48px;
-	margin: 3px;
-	background: url(../images/bg_td-normal.png) no-repeat;
-	background-size: cover;
-	position: relative;
-}
-.event-calendar a{
-	text-decoration: none;
-}
-.event-calendar .archival a{
-	color: #fff;
-}
-.event-calendar td .archival{
-	position: relative;
-	background: url(../images/bg_td-archival.png) no-repeat;
-	background-size: cover;
-}
-.event-calendar td .another-day{
-	color: #b24f51;
-	background: url(../images/bg_td-another.png) no-repeat;
-	background-size: cover;
-}
-.event-calendar td .upcoming{
-	position: relative;
-	background: url(../images/bg_td-upcoming.png) no-repeat;
-	background-size: cover;
-}
-.event-calendar .upcoming a{
-	color: #c48f32;
-}
-.event-calendar td .tooltip.hover{
-	display: block;
-}
-.event-calendar .upcoming:hover,
-.event-calendar .archival:hover {
-	color: #4e87a0;
-	background-image: url(../images/bg_td-tooltip.png);
-	background-size: cover;
-}
-.event-calendar .upcoming:hover a,
-.event-calendar .archival:hover a {
-	color: #4e87a0;
-}
-.event-calendar .tooltip{
-	width: 448px;
-	margin: 0;
-	position: absolute;
-	top: -60px;
-	right: 40px;
-	z-index: 1060;
-	display: none;
-}
-.event-calendar .event-tooltip{
-	width: 388px;
-	padding: 15px 18px;
-	font-family: 'Arvo', serif;
-	font-size: 13px;
-	color: #4e87a0;
-	text-align: left;
-	background-color: #a1d7e4;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	position: relative;
-}
-.event-calendar .event-tooltip::after {
-	content: ''; 
-	position: absolute;
-	right: -16px;
-	top: 78px;
-	border: 8px solid transparent;
-	border-left: 8px solid #a1d7e4;
-}
-.event-calendar .event-tooltip h3,
-.event-calendar .event-tooltip h4 {
-	font-size: 13px;
-	font-weight: bold;
-	line-height: 25px;
-	color: #4e87a0;
-}
-.event-calendar .event-tooltip p{
-	line-height: 24px;
-}
-.event-calendar .event-tooltip .metadata {
-/	color: #4e87a0;
-}
-.event-calendar .event-tooltip .metadata time {
-	display: inline-block;
-	height: 24px;
-	padding-left: 25px;
-	line-height: 24px;
-	background: url(../images/ico_date-white.png) no-repeat 0 2px;
-}
-.event-calendar .event-tooltip .metadata span {
-	display: inline-block;
-	width: auto;
-	height: auto;
-	line-height:25px;
-	margin: 0 0 0 30px;
-	padding-left: 25px;
-	background: url(../images/ico_place-white.png) no-repeat;
-}
-.event-calendar .event-tooltip .metadata time span {
-	display: inline-block;
-	width: auto;
-	height: auto;
-	line-height:25px;
-	margin: 0 0 0 30px;
-	padding-left: 25px;
-	background: url(../images/ico_time-white.png) no-repeat 0 2px;
-}
-
-.widget-calendar .legend{
-	padding-bottom: 45px;
-}
-.widget-calendar .legend .upcoming,
-.widget-calendar .legend .archival{
-	display: inline-block;
-	margin-left: 23px;
-	padding-left: 33px;
-	line-height: 22px;
-	background: url(../images/ico_upcoming.png) no-repeat;
-}
-.widget-calendar .legend .archival{
-	margin-left: 30px;
-	background: url(../images/ico_archival.png) no-repeat;
-}
-
-.news {
-	margin: 60px 0 30px;
-}
-.news h2{
-	font-family: 'Gochi Hand', cursive;
-	font-size: 48px;
-}
-.news h3 a{
-	font-size: 16px;
-	color: #ea6b6e;
-}
-.news .box {
-	padding: 30px 0.8%;
-}
-.news .box a{
-	display: block;
-	position: relative;
-	overflow: hidden;
-}
-.news .box a.news-img {
-	width: 370px;
-	height: 166px;
-}
-.news .box .news-img img {
-	width: 100%;
-	height: auto;
-}
-.news .box a:hover{
-	text-decoration: underline;
-}
-.news .box .mask{
-	width: 370px;
-	height: 166px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: url(../images/bg_news-mask.png) no-repeat;
-}
-.news .box-info {
-	padding: 22px 0 0;
-}
-.widget-boxes .box-info p {
-	line-height: 25px;
-}
-.news .metadata {
-	padding: 8px 0 5px;
-}
-.news time {
-	padding-left: 25px;
-	background: url(../images/ico_date.png) no-repeat 0 3px;
-	color: #c0bab4;
-}
-.news span {
-	margin-left: 20px;
-	padding-left: 25px;
-	background: url(../images/ico_author.png) no-repeat 0 3px;
-	color: #c0bab4;
 }
 
 /* Events - page
@@ -896,142 +552,6 @@ input.white[type=submit]:hover{
 .person-description p {
 	font-size: 17px;
 	line-height: 30px;
-}
-
-/* Gallery - page
-------------------------------------------------------------------------------*/
-.gallery .container{
-	max-width: 1200px;
-}
-.gallery h1 {
-	padding: 45px 15px 57px;
-}
-.tabs {
-	text-align: center;
-}
-.tabs li {
-	display: inline-block;
-	width: 137px;
-	height: 50px;
-	line-height: 50px;
-	margin: 12px;
-	font-family: 'Gochi Hand', cursive;
-	font-size: 20px;
-	color: #ea6b6e;
-	background: url(../images/bg_gallery-tab.png) no-repeat;
-}
-.tabs li.active {
-	background-position: 0 -50px;
-}
-.tabs li a {
-	display: block;
-	width: 137px;
-	height: 50px;
-	color: #9e9994;
-}
-.tabs li a:hover,
-.tabs li a.selected {
-	color: #ea6b6e;
-	text-decoration: none;
-}
-.gallery .bx-wrapper {
-	margin: 0 auto 160px;
-}
-.gallery .bx-wrapper .bx-pager {
-	bottom: -80px;
-}
-.gallery .slider ul {
-	text-align: center;
-}
-.gallery .slider ul li {
-	display: inline-block;
-	width: 270px;
-	height: 274px;
-	margin: 15px;
-}
-.gallery .slider ul li  img{
-	width: 100%;
-	height: auto;
-}
-
-/* Sidebar
-------------------------------------------------------------------------------*/
-#sidebar {
-	float: right;
-	width: 41%;
-	max-width: 470px;
-	min-width: 378px;
-	margin: 0 0 40px 20px;
-}
-#sidebar .widget-boxes,
-#sidebar .widget-calendar {
-	margin-top: 45px;
-}
-#sidebar .widget-calendar {
-	width: auto;
-}
-#sidebar .widget-calendar h3,
-#sidebar .widget-boxes h3 {
-	font-family: 'Gochi Hand', cursive;
-	font-size: 36px;
-	text-align: left;
-	color: #9e9994;
-}
-.wrap-calendar{
-	margin-top: 34px;
-	color: #fff;
-	-moz-border-radius: 12px;
-	-webkit-border-radius: 12px;
-	border-radius: 12px;
-	background-color: #ea6b6e;
-}
-#sidebar .event-calendar {
-	margin: 0 auto;
-}
-#sidebar .legend {
-	width: 378px;
-	margin: 0 auto;
-	padding: 20px 0 30px;
-}
-.event-calendar .controls,
-.event-calendar .month{
-	height: 125px;
-	padding:0;
-	vertical-align: middle;
-	font-size: 24px;
-}
-.event-calendar .controls a{
-	display: block;
-	width: 48px;
-	height: 48px;
-	text-indent: -9999px;
-}
-.event-calendar .prev-mn{
-	display:block;
-	margin:3px;
-	background: url(../images/bg_td-prev.png) no-repeat;
-	background-size: cover;
-}
-.event-calendar .next-mn{
-	display:block;
-	margin:3px;
-	background: url(../images/bg_td-next.png) no-repeat;
-	background-size: cover;
-}
-#sidebar .news {
-	padding-top: 40px;
-	text-align: left;
-}
-#sidebar .news a:hover {
-	text-decoration: underline;
-}
-#sidebar .news .box {
-	width: auto;
-	padding: 30px 0;
-	border-top: 1px dashed #d3cdc7;
-}
-#sidebar .news .box:first-child {
-	border: none;
 }
 
 /* Footer
@@ -1213,9 +733,6 @@ input.white[type=submit]:hover{
 	.promo h1{
 		font-size: 36px;
 	}
-	.bx-wrapper .bx-pager {
-		bottom: 30px;
-	}
 	#nav ul {
 		text-align:center;
 		margin:0;
@@ -1266,42 +783,7 @@ input.white[type=submit]:hover{
 		width: auto;
 		margin: 0 auto 40px;
 	}
-	.event-calendar  .event-tooltip::after {
-		display: none;
-	}
-	.event-calendar .event-tooltip{
-		width: 279px;
-	}
-	.event-calendar .tooltip{
-		width: 279px;
-		top: 52px;
-	}
-	.event-calendar .sun .tooltip{
-		right: 63px;
-	}
-	.event-calendar .sat .tooltip{
-		right: 9px;
-	}
-	.event-calendar .fri .tooltip{
-		right: -45px;
-	}
-	.event-calendar .thu .tooltip{
-		right: -99px;
-	}
-	.event-calendar .wed .tooltip{
-		right: -153px;
-	}
-	.event-calendar .tue .tooltip{
-		right: -207px;
-	}
-	.event-calendar .mon .tooltip{
-		right: -261px;
-	}
 
-	.event-calendar .event-tooltip .metadata span.place {
-		display: block;
-		margin: 0 0 5px;
-	}
 	.slide-info p {
 		line-height: 1.3em;
 	}
@@ -1426,9 +908,6 @@ input.white[type=submit]:hover{
 	.slide-info p {
 		display: none;
 	}
-	.gallery h1{
-		padding-bottom: 10px;
-	}
 	.event-description .metadata time+span {
 		display: block;
 		margin-top: 5px;
@@ -1474,94 +953,12 @@ input.white[type=submit]:hover{
 	.widget-calendar{
 		width: auto;
 	}
-	#sidebar{
-		width: auto;
-		min-width: 300px;
-	}
-	#sidebar .widget-boxes{
-		margin: 40px 15px 30px;
-	}
-	#sidebar .widget-calendar h3 {
-		padding: 0 15px;
-	}
-	.event-calendar{
-		width: 315px;
-		margin: 0 auto 30px;
-	}
-	.event-calendar col{
-		width: 39px;
-	}
-	.event-calendar .controls a,
-	.event-calendar td .cell-wrap{
-		width: 39px;
-		height: 39px;
-		line-height: 39px;
-	}
-	.event-calendar td{
-		font-size: 22px;
-	}
-	.event-calendar td .cell-wrap{
-		margin: 2px;
-	}
 
-	.event-calendar .tooltip{
-		top: 43px;
-	}
-	.event-calendar .sun .tooltip{
-		right: 32px;
-	}
-	.event-calendar .sat .tooltip{
-		right: -13px;
-	}
-	.event-calendar .fri .tooltip{
-		right: -58px;
-	}
-	.event-calendar .thu .tooltip{
-		right: -103px;
-	}
-	.event-calendar .wed .tooltip{
-		right: -148px;
-	}
-	.event-calendar .tue .tooltip{
-		right: -193px;
-	}
-	.event-calendar .mon .tooltip{
-		right: -238px;
-	}
-	.event-calendar .next-mn,
-	.event-calendar .prev-mn{
-		width: 39px;
-		height: 39px;
-		margin: 2px;
-	}
-	.widget-calendar .legend,
-	#sidebar .legend {
-		width: auto;
-		text-align:center;
-		font-size: 14px;
-	}
 	.widget-calendar .legend .upcoming, .widget-calendar .legend .archival{
 		margin-left:1%;
 	}
-	.news .box>a,
-	.news .box img,
-	.news .box .mask {
-		width: 300px;
-		height: 135px;
-		margin:0 auto;
-	}
-	.news .box a.news-img {
-		width: 300px;
-		height: 135px;
-	}
-	.news .box a.news-img img {
-		width: 100%;
-		height: auto;
-	}
-	.news .box .mask {
-		background-size: 300px 135px;
-	}
-	.events .news .box a{
+	
+	.events .box a{
 		width: auto;
 		height: auto;
 	}
@@ -1571,10 +968,6 @@ input.white[type=submit]:hover{
 	.events .event-description .metadata span{
 		display: block;
 		margin: 10px 0 0 0;
-	}
-	.gallery .slider ul li{
-		margin-left: 0;
-		margin-right: 0;
 	}
 }
 
@@ -1605,51 +998,6 @@ input.white[type=submit]:hover{
 	.widget-boxes .fun {
 		background: url(../images/ico_info3-x2.png) no-repeat 50% 0;
 		background-size: 137px 132px;
-	}
-	.event-description .metadata time {
-		background: url(../images/ico_date-pink-x2.png) no-repeat 0 0;
-		background-size: 17px 17px;
-	}
-	.event-description .metadata span {
-		background: url(../images/ico_place-pink-x2.png) no-repeat 0 0;
-		background-size: 17px 17px;
-	}
-	.event-description .metadata time span {
-		background: url(../images/ico_time-pink-x2.png) no-repeat 0 0;
-		background-size: 17px 17px;
-	}
-	.event-calendar td .archival{
-		background: url(../images/bg_td-archival-x2.png) no-repeat;
-		background-size: cover;
-	}
-	.event-calendar td .another-day{
-		background: url(../images/bg_td-another-x2.png) no-repeat;
-		background-size: cover;
-	}
-	.event-calendar td .upcoming{
-		background: url(../images/bg_td-upcoming-x2.png) no-repeat;
-		background-size: cover;
-	}
-	.event-calendar .upcoming:hover,
-	.event-calendar .archival:hover {
-		background-image: url(../images/bg_td-tooltip-x2.png);
-		background-size: cover;
-	}
-	.widget-calendar .legend .upcoming{
-		background: url(../images/ico_upcoming-x2.png) no-repeat;
-		background-size: 22px 22px;
-	}
-	.widget-calendar .legend .archival{
-		background: url(../images/ico_archival-x2.png) no-repeat;
-		background-size: 22px 22px;
-	}
-	.news time {
-		background: url(../images/ico_date-x2.png) no-repeat 0 3px;
-		background-size: 13px 13px;
-	}
-	.news span {
-		background: url(../images/ico_author-x2.png) no-repeat 0 3px;
-		background-size: 13px 13px;
 	}
 	#footer address.map {
 		background: url(../images/ico_map-x2.png) no-repeat 0 50%;
@@ -1691,61 +1039,6 @@ input.white[type=submit]:hover{
 		background: url(../images/ico_pt-x2.png) no-repeat;
 		background-size: 48px 47px;
 	}
-	.event-calendar .prev-mn{
-		background: url(../images/bg_td-prev-x2.png) no-repeat;
-		background-size: cover;
-	}
-	.event-calendar .next-mn{
-		background: url(../images/bg_td-next-x2.png) no-repeat;
-		background-size: cover;
-	}
-	.events .event-description .metadata time {
-		background: url(../images/ico_date-red-x2.png) no-repeat;
-		background-size: 17px 17px;
-	}
-	.events .event-description .metadata span {
-		background: url(../images/ico_place-red-x2.png) no-repeat;
-		background-size: 17px 17px;
-	}
-	.events .event-description .metadata time span {
-		background: url(../images/ico_time-red-x2.png) no-repeat;
-		background-size: 17px 17px;
-	}
-	.event-calendar .event-tooltip .metadata time {
-		background: url(../images/ico_date-white-x2.png) no-repeat 0 2px;
-		background-size: 17px 17px;
-	}
-	.event-calendar .event-tooltip .metadata span {
-		background: url(../images/ico_place-white-x2.png) no-repeat;
-		background-size: 17px 17px;
-	}
-	.event-calendar .event-tooltip .metadata time span {
-		background: url(../images/ico_time-white-x2.png) no-repeat 0 2px;
-		background-size: 17px 17px;
-	}
-	.about .mask,
-	.gallery .mask {
-		background: url(../images/bg_person-mask-x2.png) no-repeat;
-		background-size: 270px 274px;
-	}
-	.bx-wrapper .bx-pager.bx-default-pager a {
-		background: url(../images/bg_pgn-x2.png) no-repeat;
-		background-size: 16px 16px;
-	}
-	.bx-wrapper .bx-pager.bx-default-pager a:hover,
-	.bx-wrapper .bx-pager.bx-default-pager a.active {
-		background: url(../images/bg_pgn-active-x2.png) no-repeat;
-		background-size: 16px 16px;
-	}
-	.gallery .bx-wrapper .bx-pager.bx-default-pager a,
-	.gallery .bx-wrapper .bx-pager.bx-default-pager a:hover,
-	.gallery .bx-wrapper .bx-pager.bx-default-pager a.active {
-		background-size: 22px 22px;
-	}
-	.news .box .mask{
-		background-image: url(../images/bg_news-mask-x2.png) no-repeat;
-		background-size: 370px 166px;
-	}
 	.top-pink-border{
 		background: url(../images/bg_pink-border-top-x2.png) repeat-x;
 		background-size: 30px 27px;
@@ -1771,10 +1064,6 @@ input.white[type=submit]:hover{
 		background-size: 16px 16px;
 	}
 	
-	@media only screen and (max-width : 480px) {
-		.news .box .mask {
-			background-size: 300px 135px;
-		}
-	}
+
 }
 
