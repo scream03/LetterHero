@@ -19,9 +19,7 @@ function unlockLevelButton(button){
 
 $('.playLevelButton').click(
     function(){
-        console.log('PLay button clicked');
         let playLevelButtons = Array.prototype.slice.call( document.getElementsByClassName('playLevelButton'));
-        console.log(playLevelButtons);
         idx = playLevelButtons.indexOf(this);
         gameData.currentLevel = idx +1 ;
         dataObjectUpdated();
