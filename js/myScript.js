@@ -68,6 +68,7 @@ function levelWon(){
     //can1.erase();
     gameData.levels[gameData.currentLevel -1].won = true;
     let s = document.getElementById('winSound');
+    stopOtherAudios();
     s.play()
     if(!gameData.levels[gameData.currentLevel -1].completed){
         gameData.playerScore += 50;
@@ -81,6 +82,7 @@ function levelWon(){
 
 function levelLost(){
     let s = document.getElementById('lostSound');
+    stopOtherAudios();
     s.play();
     can1.erase();
     $('#looseBox').fadeIn();
@@ -128,6 +130,7 @@ b2.addEventListener("click", function () {
 
 $('#audio').click(function() {
     sound = document.getElementById('levelSound');
+    stopOtherAudios();
     sound.play();
     return false;
   });
@@ -160,11 +163,13 @@ $('#closeHelpButton').click(function(){
 
 b5.addEventListener("click", function () {
     let s = document.getElementById('helpSound');
+    stopOtherAudios();
     s.play();
 });
 
 b6.addEventListener("click", function () {
     let s = document.getElementById('storySound');
+    stopOtherAudios();
     s.play();
 });
 
@@ -297,5 +302,13 @@ function draw() {
         default:
       }
     
-    
+}
+
+function stopOtherAudios(){
+    var sounds = document.getElementsByTagName('audio');
+    for(i=0; i<sounds.length; i++)
+    {
+        sounds[i].pause();
+        sounds[i].currentTime = 0 ;
+    }
 }
