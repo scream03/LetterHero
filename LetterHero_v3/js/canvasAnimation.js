@@ -175,7 +175,6 @@ function Glass(x_pos, y_pos, v_x, v_y) {
     this.colorG = 87;
     this.colorB = 87;
     this.scaleFactor = 2.5;
-    this.font = loadFont('https://scream03.github.io/LetterHero/LetterHero_v3/fonts/gochiHand.tff');
 
 }
 
@@ -190,7 +189,6 @@ Glass.prototype.drawLetter = function () {
         translate(this.x*2, this.y *2);
         fill(this.colorR, this.colorG, this.colorB);
         this.scale();
-        textFont(this.font);
         textSize(100);
         text('U', -30, 50);
     pop();
