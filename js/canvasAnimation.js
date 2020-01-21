@@ -171,9 +171,7 @@ function Glass(x_pos, y_pos, v_x, v_y) {
     this.y = y_pos;
     this.vx = v_x;
     this.vy = v_y;
-    this.colorR = 235;
-    this.colorG = 87;
-    this.colorB = 87;
+    this.color = color(235, 87, 87);
     this.scaleFactor = 2.5;
 
 }
@@ -187,7 +185,8 @@ Glass.prototype.scale = function () {
 Glass.prototype.drawLetter = function () {
     push();
         translate(this.x*2, this.y *2);
-        fill(this.colorR, this.colorG, this.colorB);
+        this.color.setAlpha(128 + 128 * sin(millis() / 500));
+        fill(this.color);
         this.scale();
         textSize(100);
         text('U', -30, 50);
